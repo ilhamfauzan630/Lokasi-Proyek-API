@@ -16,6 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -52,5 +53,15 @@ public class ProyekLokasiService {
         proyekLokasi.setLokasi(lokasi);
 
         proyekLokasiRepository.save(proyekLokasi);
+    }
+
+    public List<ProyekLokasi> getAllProyekLokasi() {
+        return proyekLokasiRepository.findAll();
+    }
+
+    public void deleteProyekLokasi(Integer id) {
+        ProyekLokasi proyeklokasi = proyekLokasiRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "proyek_lokasi tidak ditemukan"));
+        proyekLokasiRepository.delete(proyeklokasi);
     }
 }

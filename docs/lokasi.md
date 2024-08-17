@@ -2,25 +2,25 @@
 
 ## Menambahkan data lokasi
 
-Endpoint : POST /lokasi
+Endpoint : POST /api/lokasi
 
 
 Request Body :
 
 ```json
 {
-  "nama_lokasi": "cianjur",
+  "namaLokasi": "kaliurang",
   "negara": "indonesia",
   "provinsi": "jawa barat",
-  "kota": "cianjur"
+  "kota": "Yogyakarta"
 }
 ```
 
 Response Body (success):
 ```json
 {
-  "status": "success",
-  "message": "Berhasil menyimpan data lokasi"
+  "data": "success",
+  "errors": null
 }
 ```
 
@@ -28,7 +28,7 @@ Response Body (failed):
 ```json
 {
   "status": "failed",
-  "error": "gagal menyimpan data lokasi"
+  "errors": "gagal menyimpan data lokasi"
 }
 ```
 
@@ -39,64 +39,64 @@ Endpoint : GET /lokasi
 Response Body (success) :
 ```json
 {
-  "status": "success",
   "data": [
     {
-      "lokasi1": {
-        "id": "1",
-        "nama_lokasi": "cianjur",
-        "negara": "indonesia",
-        "kota": "cianjur",
-        "created_at": "18-agustus-2024"
-      },
-      "lokasi2": {
-        "id": "1",
-        "nama_lokasi": "yogyakarta",
-        "negara": "indonesia",
-        "kota": "bantul",
-        "created_at": "19-agustus-2024"
-      }
+      "id": 9,
+      "namaLokasi": "Lokasi Baru",
+      "negara": "Indonesia",
+      "provinsi": "Jawa Tengah",
+      "kota": "Semarang",
+      "createdAt": "2024-08-17T14:53:03.000+00:00"
+    },
+    {
+      "id": 10,
+      "namaLokasi": "kaliurang",
+      "negara": "indonesia",
+      "provinsi": "jawa barat",
+      "kota": "Yogyakarta",
+      "createdAt": "2024-08-17T16:28:06.000+00:00"
     }
-  ]
+  ],
+  "errors": null
 }
 ```
 
 Response Body (failed) :
 ```json
 {
-  "status": "failed",
-  "error": "Gagal mendapatkan data lokasi"
+  "data": "failed",
+  "errors": "Gagal mendapatkan data lokasi"
 }
 ```
 
 ## Update / edit data lokasi
 
-Endpoint : PATCH /lokasi/:id
+Endpoint : PATCH /api/lokasi/{id}
 
 Request Body :
 
 ```json
 {
-  "nama_lokasi": "cianjur",
-  "negara": "indonesia",
-  "provinsi": "jawa barat",
-  "kota": "cianjur"
+  "namaLokasi": "update lokasi",
+  "negara": "Indonesia",
+  "provinsi": "yogyakarta",
+  "kota": "yogyakarta"
 }
 ```
 
 Response Body (success) :
 ```json
 {
-  "status": "success",
-  "message": "lokasi berhasil diupdate"
+  "data": "success",
+  "errors": null
 }
 ```
 
 Response Body (failed) :
 ```json
 {
-  "status": "failed",
-  "error": "Gagal mengupdate lokasi"
+  "data": "failed",
+  "errors": "Gagal mengupdate lokasi"
 }
 ```
 
@@ -107,15 +107,15 @@ Endpoint : DELETE /lokasi/:id
 Response Body (success) :
 ```json
 {
-  "status": "success",
-  "message": "lokasi berhasil dihapus"
+  "data": "success",
+  "errors": null
 }
 ```
 
 Response Body (failed) :
 ```json
 {
-  "status": "failed",
-  "error": "Gagal menghapus lokasi"
+  "data": "failed",
+  "errors": "Gagal menghapus lokasi"
 }
 ```

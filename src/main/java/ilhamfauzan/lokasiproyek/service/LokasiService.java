@@ -8,9 +8,12 @@ import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -37,6 +40,27 @@ public class LokasiService {
         lokasi.setCreatedAt(new Timestamp(System.currentTimeMillis()));
 
         lokasiRepository.save(lokasi);
+    }
 
+    public List<Lokasi> getAllLokasi() {
+        return lokasiRepository.findAll();
+    }
+
+    public Lokasi updateLokasi(Integer id, AddLokasiRequest request) {
+        Lokasi lokasi = lokasiRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Lokasi tidak ditemukan"));
+
+        lokasi.setNamaLokasi(request.getNamaLokasi());
+        lokasi.setNegara(request.getNegara());
+        lokasi.setProvinsi(request.getProvinsi());
+        lokasi.setKota(request.getKota());
+
+        return lokasiRepository.save(lokasi);
+    }
+
+    public void deleteLokasi(Integer id) {
+        Lokasi lokasi = lokasiRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "lokasi tidak ditemukan"));
+        lokasiRepository.delete(lokasi);
     }
 }
