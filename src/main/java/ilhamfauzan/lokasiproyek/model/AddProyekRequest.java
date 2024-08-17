@@ -7,24 +7,30 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class LokasiRequest {
-    @NotBlank
-    @Size(max = 100)
-    private String namaLokasi;
+public class AddProyekRequest {
 
     @NotBlank
     @Size(max = 100)
-    private String negara;
+    private String namaProyek;
 
     @NotBlank
     @Size(max = 100)
-    private String provinsi;
+    private String client;
+
+    private LocalDateTime tglMulai;
+
+    private LocalDateTime tglSelesai;
 
     @NotBlank
     @Size(max = 100)
-    private String kota;
+    private String pimpinanProyek;
+
+    @NotBlank
+    private String keterangan;
 }

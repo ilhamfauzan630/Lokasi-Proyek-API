@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -26,17 +27,17 @@ public class Proyek {
 
     private String client;
 
-    @Column(name = "tgl_mulai")
-    private Timestamp tglMulai;
+    @Column(name = "tgl_mulai", columnDefinition = "DATETIME")
+    private LocalDateTime tglMulai;
 
-    @Column(name = "tgl_selesai")
-    private Timestamp tglSelesai;
+    @Column(name = "tgl_selesai", columnDefinition = "DATETIME")
+    private LocalDateTime tglSelesai;
 
     @Column(name = "pimpinan_proyek")
     private String pimpinanProyek;
 
     private String keterangan;
 
-    @Column(name = "created_at")
+    @Column(name = "created_at", columnDefinition = "TEXT")
     private Timestamp createdAt;
 }
