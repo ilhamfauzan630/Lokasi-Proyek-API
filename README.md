@@ -4,4 +4,4 @@
 - <p><a href="https://github.com/ilhamfauzan630/Lokasi-Proyek-API/blob/master/docs/ProyekLokasi.md">ProyekLokasi</a></p>
 
 ## LINK DATABASE.SQL :
-- <p><a href="https://github.com/ilhamfauzan630/Lokasi-Proyek-API/blob/master/database.sql">ProyekLokasi</a></p>
+- <p><a href="https://github.com/ilhamfauzan630/Lokasi-Proyek-API/blob/master/database.sql">Database</a></p>
